@@ -7,7 +7,6 @@ value: mean under the null (in one sample case) or mean difference (in two sampl
 #A researcher wants to know if a new drug affects IQ levels, so he recruits 20 patients to try it and records their IQ levels.
 #The following code shows how to perform a one sample z-test in Python to determine if the new drug causes a significant difference in IQ levels:
 
-
 from statsmodels.stats.weightstats 
 import ztest as ztest
 
