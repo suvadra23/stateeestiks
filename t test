@@ -1,0 +1,27 @@
+#you typically have the following two hypotheses:
+ #Null hypotheses: Two group means are equal
+ #Alternative hypotheses: Two group means are different (two-tailed)
+    
+
+#importing data
+
+import pandas as pd
+data = 'https://gist.githubusercontent.com/baskaufs/1a7a995c1b25d6e88b45/raw/4bb17ccc5c1e62c27627833a4f25380f27d30b35/t-test.csv'
+df = pd.read_csv(data)
+df.head()
+
+# Subset data
+male = df.query('grouping == "men"')['height']
+female = df.query('grouping == "women"')['height']
+
+#Levene’s test to test for homogeneity of variances (equal variances)
+stats.levene(male, female)
+# Output: LeveneResult(statistic=0.026695150465104206, pvalue=0.8729335280501348)
+#the p-value suggests that the data follows the assumption of equal variances
+
+from statsmodels.stats.weightstats import ttest_ind
+ttest_ind(male, female)
+
+#visualising
+import seaborn as sns
+sns.boxplot(x='grouping', y='height', data=df)
