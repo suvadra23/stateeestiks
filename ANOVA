@@ -1,0 +1,21 @@
+#One-Way ANOVA
+#also known as “analysis of variance” 
+#is a test that is used to find out whether there exists a statistically significant difference between the mean values of more than one group.
+
+#statement
+#Researchers took 20 cars of the same to take part in a study. 
+#These cars are randomly doped with one of the four-engine oils and allowed to run freely for 100 kilometers each. 
+#At the end of the journey, the performance of each of the cars is noted. 
+
+# Importing library
+from scipy.stats import f_oneway
+ 
+# Performance when each of the engine
+# oil is applied
+performance1 = [89, 89, 88, 78, 79]
+performance2 = [93, 92, 94, 89, 88]
+performance3 = [89, 88, 89, 93, 90]
+performance4 = [81, 78, 81, 92, 82]
+ 
+# Conduct the one-way ANOVA
+f_oneway(performance1, performance2, performance3, performance4)
